@@ -1,10 +1,11 @@
 import twilio from 'twilio';
+const apiKeySid = process.env.TWILIO_API_KEY!; // SK...
+const apiKeySecret = process.env.TWILIO_API_SECRET!;
 const accountSid = process.env.ACCOUNT_SID!;
-const authToken = process.env.AUTH_TOKEN;
-const client = twilio(accountSid, authToken);
+const client = twilio(apiKeySid, apiKeySecret, { accountSid });
 export const sendSMS = (to: string, body: string) =>
   client.messages.create({
+    to,
     body,
-    from: process.env.FROMPHONE,
-    to
+    messagingServiceSid: process.env.MESSAGING_SERVICE_SID!,
   });

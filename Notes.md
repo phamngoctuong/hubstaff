@@ -237,3 +237,32 @@ Hình ảnh Test thành công: https://prnt.sc/vdbi8RVhLJZU
 Đây là hình ảnh cấu hình sử dụng tài khoản Test bắt đầu bằng AC: https://prnt.sc/gx6WAZtPqH-2
 Kết quả cũng đồng thời được ghi vào database: https://prnt.sc/YjGcCBP5k8VN
 Đây là kiểm tra kết quả nhận được gửi tin nhắn thành công: https://prnt.sc/9OeRKgEggFYB
+<!-- Bước 16: Fix gửi SMS với Twilio (test) -->
+<!-- Sử dụng ChatGPT fix -->
+src\app\lib\twilio.ts
+import twilio from 'twilio';
+const apiKeySid = process.env.TWILIO_API_KEY!; // SK...
+const apiKeySecret = process.env.TWILIO_API_SECRET!;
+const accountSid = process.env.ACCOUNT_SID!;
+const client = twilio(apiKeySid, apiKeySecret, { accountSid });
+export const sendSMS = (to: string, body: string) =>
+  client.messages.create({
+    to,
+    body,
+    messagingServiceSid: process.env.MESSAGING_SERVICE_SID!,
+  });
+<!-- Bước 17: Chỉnh trang Thank-you  -->
+Hiển thị:
+o   Mã hẹn (APTXXXX)
+o   Ngày giờ theo định dạng: “July 25, 2025 - 10:30 AM”
+o   Tên technician (nếu có)
+o   Thông báo đã gửi xác nhận qua SMS
+o   Nút Go Back → quay lại /book (form trống)
+Kết quả: https://prnt.sc/dXrY-AfSmEcd
+<!-- Bước 18: Trang Quản Lý Lịch Hẹn (Admin Dashboard) -->
+<!-- src\app\admin\page.tsx -->
+Kết quả: https://prnt.sc/T2aNOwhLOZbp
+<!-- Bước 19: Bắt đầu đi cắt Front-End và ghép với Back-end -->
+https://prnt.sc/S28IuAuNH31a
+<!-- Bước 20: Hoàn thiện 90% trang Admin -->
+https://prnt.sc/oGWkVF1KsccA

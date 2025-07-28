@@ -26,7 +26,7 @@ export default function Book() {
       setError(data.error);
       return;
     }
-    router.push(`/thank-you`);
+    router.push(`/thank-you?code=${data.code}&dateTime=${form.date_time}&technician=${form.technician}`);
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });

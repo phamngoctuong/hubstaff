@@ -11,7 +11,7 @@ export default function Scheduling() {
     technician: ""
   });
   const [error, setError] = useState("");
-  const handChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     e.preventDefault();
     setForm({ ...form, [e.target.name]: e.target.value });
   }
@@ -25,7 +25,7 @@ export default function Scheduling() {
         </div>
       </div>
       <div className="py-[75px]">
-        <form className="py-[40px] px-[75px] grid grid-cols-2 gap-[20px] mx-auto w-[1058px] bg-white rounded-[16px] border-[1px] border-solid border-[#1D3B36]">
+        <form noValidate className="py-[40px] px-[75px] grid grid-cols-2 gap-[20px] mx-auto w-[1058px] bg-white rounded-[16px] border-[1px] border-solid border-[#1D3B36]">
           <h2 className="col-span-2 text-[32px] text-[#8C5F2A] font-bold text-center">Please complete the form to schedule your appointment.</h2>
           <div>
             <input
@@ -76,7 +76,7 @@ export default function Scheduling() {
                 }
               </span>
               <svg className="absolute right-[5px] top-1/2 -translate-1/2" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 2L7 7L12 2" stroke="#1D3B36" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M2 2L7 7L12 2" stroke="#1D3B36" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <input
@@ -85,7 +85,7 @@ export default function Scheduling() {
               type="datetime-local"
               value={`July 25, 2025 - 10:30 AM`}
               className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
-              onChange={handChange}
+              onChange={handleChange}
             />
           </div>
           <div className="relative">
@@ -93,7 +93,7 @@ export default function Scheduling() {
                 className="appearance-none w-full rounded-[12px] border-[#1D3B36] border-[1px] bg-[#EFEFEF] text-[#444C53] px-[15px] py-[7px] placeholder:text-[#444C53] "
                 name="technician" 
                 id="technician"
-                onChange={handChange}
+                onChange={handleChange}
               >
                 <option value="">Select Technician (optional)</option>
                 <option value="Jessica Tran">Jessica Tran</option>
@@ -101,7 +101,7 @@ export default function Scheduling() {
                 <option value="Anna Pham">Anna Pham</option>
             </select>
             <svg className="absolute right-[5px] top-1/2 -translate-1/2" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 2L7 7L12 2" stroke="#1D3B36" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M2 2L7 7L12 2" stroke="#1D3B36" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
           </div>
           <div className="col-span-2 text-center">

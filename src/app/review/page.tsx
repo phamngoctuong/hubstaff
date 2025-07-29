@@ -325,7 +325,7 @@ export default function Review() {
             <button className="bg-[#C6E100] rounded-[8px] px-[24px] py-[12px] hover:bg-[#AAB800]">Start My 14-Day Free Trial</button>
             <button className="bg-[#F9F9F6] rounded-[8px] border-[1px] border-[#1D3B36] px-[24px] py-[12px] hover:bg-[#E3E3E3] relative">
               <svg className="absolute left-[25px] top-1/2 -translate-y-1/2" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.33334 2.5L12.6667 8.5L3.33334 14.5V2.5Z" stroke="#1D3B36" strokeWidth="1.6" strokeLinecap="round" stroke-linejoin="round" />
+                <path d="M3.33334 2.5L12.6667 8.5L3.33334 14.5V2.5Z" stroke="#1D3B36" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span>Watch a Demo</span>
             </button>

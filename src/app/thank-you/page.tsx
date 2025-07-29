@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-export default async function Thanks() {
+export default function Thanks() {
   const params = useSearchParams();
   const router = useRouter();
   const code = params.get('code');

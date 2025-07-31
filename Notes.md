@@ -1,7 +1,7 @@
 <!-- Bước 1: Tạo database -->
 CREATE TABLE bookings (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    appointment_code VARCHAR(4) NOT NULL,
+    appointment_code VARCHAR(7) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     phone VARCHAR(12) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE bookings (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 <!-- Bước 2: Tạo dữ liệu mẫu -->
-INSERT INTO `bookings` (`id`, `appointment_code`, `first_name`, `last_name`, `phone`, `email`, `date_time`, `technician`, `created_ad`) VALUES (NULL, 'A123', 'Lionel 1', 'Pham 1', '+10987654321', 'lionel1@gmail.com', '2025-07-26 02:18:18.000000', 'Jessica Tran', current_timestamp());
+INSERT INTO `bookings` (`id`, `appointment_code`, `first_name`, `last_name`, `phone`, `email`, `date_time`, `technician`, `created_at`) VALUES (NULL, 'A123', 'Lionel 1', 'Pham 1', '+10987654321', 'lionel1@gmail.com', '2025-07-26 02:18:18.000000', 'Jessica Tran', current_timestamp());
 <!-- Bước 3: Tạo kết nối với database src\app\lib\db.ts -->
 import mysql from 'mysql2/promise';
 export const db = mysql.createPool({

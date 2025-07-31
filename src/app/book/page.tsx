@@ -112,7 +112,7 @@ export default function Book() {
             />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
           </div>
-          <div className="relative">
+          <div className="relative h-[40px]">
             <div
               className={`min-h-[40px] w-full h-full cursor-pointer rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] ${
                 errors.date_time ? "border-red-500" : "border-[#1D3B36]"
@@ -131,7 +131,7 @@ export default function Book() {
                   : "Chọn Ngày & Giờ *"}
               </span>
               <svg
-                className="absolute right-[5px] top-1/2 -translate-1/2"
+                className="absolute right-0 top-1/2 -translate-1/2"
                 width="14"
                 height="9"
                 viewBox="0 0 14 9"
@@ -150,6 +150,16 @@ export default function Book() {
             {errors.date_time && <p className="text-red-500 text-sm mt-1">{errors.date_time.message}</p>}
           </div>
           <div className="relative">
+            <svg
+              className="absolute right-[5px] top-1/2 -translate-1/2"
+              width="14"
+              height="9"
+              viewBox="0 0 14 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M2 2L7 7L12 2" stroke="#1D3B36" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
             <select
               {...register("technician")}
               className={`appearance-none w-full rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] px-[15px] py-[7px] placeholder:text-[#444C53] ${
@@ -162,16 +172,6 @@ export default function Book() {
               <option value="Michael Le">Michael Le</option>
               <option value="Anna Pham">Anna Pham</option>
             </select>
-            <svg
-              className="absolute right-[5px] top-1/2 -translate-1/2"
-              width="14"
-              height="9"
-              viewBox="0 0 14 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M2 2L7 7L12 2" stroke="#1D3B36" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
             {errors.technician && <p className="text-red-500 text-sm mt-1">{errors.technician.message}</p>}
           </div>
           <div className="col-span-2 text-center">

@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`overflow-x-hidden ${interSans.className}`}>
         <ClerkProvider>
-          <Header />
+          {/* <Header /> */}
           {children}
           <Footer />
         </ClerkProvider>

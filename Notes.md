@@ -266,5 +266,6 @@ Kết quả: https://prnt.sc/T2aNOwhLOZbp
 https://prnt.sc/S28IuAuNH31a
 <!-- Bước 20: Hoàn thiện 90% trang Admin -->
 https://prnt.sc/oGWkVF1KsccA
-<!-- Bước 20: Hoàn thiện trang Admin -->
+<!-- Bước 21: Hoàn thiện trang Admin -->
 https://prnt.sc/C3NvpBU5P1pP
+Link: Design https://www.figma.com/design/2mtxaxL92IHs2RARxni3yv/Appointment-Scheduling--Test---Copy-?node-id=927-744&t=ANKWAELeQ1ggva8D-0

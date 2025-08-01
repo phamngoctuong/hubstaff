@@ -5,11 +5,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 const bookSchema = z.object({
-  first_name: z.string().nonempty("Tên không được để trống"),
-  last_name: z.string().nonempty("Họ không được để trống"),
-  phone: z.string().nonempty("Số điện thoại không được để trống"),
-  email: z.string().nonempty("Email không được để trống"),
-  date_time: z.string().nonempty("Ngày và giờ không được để trống"),
+  first_name: z.string().nonempty("This field is required"),
+  last_name: z.string().nonempty("This field is required"),
+  phone: z.string().nonempty("This field is required"),
+  email: z.string().nonempty("This field is required"),
+  date_time: z.string().nonempty("This field is required"),
   technician: z.string().optional(),
 });
 type BookFormData = z.infer<typeof bookSchema>;
@@ -50,12 +50,11 @@ export default function Book() {
   return (
     <div className="min-h-screen">
       <div className="relative w-screen h-screen">
-        <Image src={`/images/banner.png`} fill alt="Banner" />
-        <div className="grid content-center md:block absolute left-1/2 -translate-x-1/2 w-full md:w-[1140px] h-[230px] md:h-[311px] bg-[#000000]/50 bottom-[80px] text-center px-[32px]">
+        <Image src={`/images/banner.png`} fill className="object-cover" alt="Banner" />
+        <div className="grid content-center md:block absolute left-1/2 -translate-x-1/2 w-[calc(100%-20px)] md:w-[1140px] h-[280px] md:h-[311px] bg-[#000000]/50 bottom-[80px] text-center px-[25px]">
           <h1 className="text-[36px] md:text-[72px] font-bold text-white">Welcome to Spa Nails</h1>
           <p className="text-[18px] font-normal md:text-[32px] md:font-bold text-white">
-            Where great service meets comfort and care. Book your appointment today and experience personalized attention
-            from a team that puts you first.
+            Where great service meets comfort and care. Book your appointment today and experience personalized attention from a team that puts you first.
           </p>
         </div>
       </div>
@@ -72,7 +71,7 @@ export default function Book() {
             <input
               type="text"
               {...register("first_name")}
-              placeholder="Tên"
+              placeholder="First Name *"
               className={`w-full rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] px-[15px] py-[7px] placeholder:text-[#444C53] ${
                 errors.first_name ? "border-red-500" : "border-[#1D3B36]"
               }`}
@@ -83,7 +82,7 @@ export default function Book() {
             <input
               type="text"
               {...register("last_name")}
-              placeholder="Họ"
+              placeholder="Last Name *"
               className={`w-full rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] px-[15px] py-[7px] placeholder:text-[#444C53] ${
                 errors.last_name ? "border-red-500" : "border-[#1D3B36]"
               }`}
@@ -94,7 +93,7 @@ export default function Book() {
             <input
               type="email"
               {...register("email")}
-              placeholder="Email"
+              placeholder="Email *"
               className={`w-full rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] px-[15px] py-[7px] placeholder:text-[#444C53] ${
                 errors.email ? "border-red-500" : "border-[#1D3B36]"
               }`}
@@ -105,14 +104,14 @@ export default function Book() {
             <input
               type="text"
               {...register("phone")}
-              placeholder="Số điện thoại"
+              placeholder="Phone Number *"
               className={`w-full rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] px-[15px] py-[7px] placeholder:text-[#444C53] ${
                 errors.phone ? "border-red-500" : "border-[#1D3B36]"
               }`}
             />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
           </div>
-          <div className="relative h-[40px]">
+          <div className={`relative h-[40px] ${errors.date_time ? "mb-[20px]": ""}`}>
             <div
               className={`min-h-[40px] w-full h-full cursor-pointer rounded-[12px] border-[1px] bg-[#EFEFEF] text-[#444C53] ${
                 errors.date_time ? "border-red-500" : "border-[#1D3B36]"
@@ -128,7 +127,7 @@ export default function Book() {
                       hour: "numeric",
                       minute: "2-digit",
                     }).replace(" at ", " - ")
-                  : "Chọn Ngày & Giờ *"}
+                  : "Select Date & Time *"}
               </span>
               <svg
                 className="absolute right-0 top-1/2 -translate-1/2"
@@ -149,9 +148,9 @@ export default function Book() {
             />
             {errors.date_time && <p className="text-red-500 text-sm mt-1">{errors.date_time.message}</p>}
           </div>
-          <div className="relative">
+          <div className="relative h-[40px]">
             <svg
-              className="absolute right-[5px] top-1/2 -translate-1/2"
+              className="absolute right-0 top-1/2 -translate-1/2"
               width="14"
               height="9"
               viewBox="0 0 14 9"
@@ -167,19 +166,18 @@ export default function Book() {
               }`}
               id="technician"
             >
-              <option value="">Chọn Kỹ thuật viên (không bắt buộc)</option>
+              <option value="">Select Technician (optional)</option>
               <option value="Jessica Tran">Jessica Tran</option>
               <option value="Michael Le">Michael Le</option>
               <option value="Anna Pham">Anna Pham</option>
             </select>
-            {errors.technician && <p className="text-red-500 text-sm mt-1">{errors.technician.message}</p>}
           </div>
           <div className="col-span-2 text-center">
             <button
               type="submit"
               className="text-[#1D3B36] font-bold text-center text-[18px] bg-[#C6E100] rounded-[8px] w-[200px] h-[47px] hover:bg-[#aab800]"
             >
-              Gửi Yêu cầu
+              Submit Request
             </button>
           </div>
         </form>
